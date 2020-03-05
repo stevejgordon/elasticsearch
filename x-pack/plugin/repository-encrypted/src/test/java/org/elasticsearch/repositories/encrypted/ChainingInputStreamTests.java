@@ -584,6 +584,7 @@ public class ChainingInputStreamTests extends ESTestCase {
         } else {
             verify(currentIn, times(2)).mark(Mockito.eq(readLimit));
         }
+        verify(currentIn).mark(Mockito.eq(readLimit));
         // read more while switching the component
         for (int i = 0; i < randomIntBetween(4, 16) || test.currentIn == currentIn; i++) {
             test.readNBytes(randomInt(63));
